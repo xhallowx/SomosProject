@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="principal">
+        <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="principal confirm-form">
             @csrf
             @method('PUT')
 

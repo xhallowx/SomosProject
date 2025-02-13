@@ -17,10 +17,10 @@
         </div>
     @endif
     <div class="container">
-        <h2 class="mb-4 register">Registra una tarea</h2>
+        <h2 class="mb-4 register">Registrar Proyecto</h2>
 
         {{-- Formulario de creación de tareas --}}
-        <form action="{{ route('tasks.store') }}" method="POST" class="principal">
+        <form action="{{ route('tasks.store') }}" method="POST" class="principal confirm-form">
             @csrf
             <div class="mb-3">
                 <label for="name_project" class="form-label">Project Name</label>
@@ -87,9 +87,9 @@
 
         <!-- Selección de Owner -->
         <div class="mb-3 owner">
-            <label for="filterOwner" class="filter">Filtrar por Owner : </label>
+            <label for="filterOwner" class="filter">Buscar Owner : </label>
             <select class="select" id="filterOwner">
-                <option value="">Selecciona un Owner</option>
+                <option value="">Seleccionar</option>
                 @foreach ($tasks->pluck('owner')->unique() as $owner)
                     <option value="{{ $owner }}">{{ $owner }}</option>
                 @endforeach
@@ -97,7 +97,7 @@
         </div>
 
         {{-- Tabla de tareas registradas --}}
-        <h2 class="mt-5 register">Registered Tasks</h2>
+        <h2 class="mt-5 register">Proyectos Registrados</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -108,6 +108,7 @@
                     <th>Request Date</th>
                     <th>Start Date</th>
                     <th>Finish Date</th>
+                    <th>Project Description</th>
                     <th>Project State</th>
                     <th>Actions</th>
                 </tr>
@@ -122,20 +123,21 @@
                         <td>{{ $task->request_date }}</td>
                         <td>{{ $task->start_date }}</td>
                         <td>{{ $task->finish_date }}</td>
+                        <td style="max-width: 100px; white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">{{ $task->project_description }}</td>
                         <td>{{ $task->project_state }}</td>
                         <td>
                             <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning btn-sm btnEdit">Edit</a>
                             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm btnDelete" onclick="return confirm('Are you sure?')">Delete</button>
+                                <button type="submit" class="btn btn-danger btn-sm btnDelete" onclick="return confirm('Estas seguro?')">Delete</button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <p id="noResults" class="text-center text-danger mt-3" style="display: none;">No tasks found for this owner.</p>
+        <p id="noResults" class="text-center text-danger mt-3" style="display: none;">Proyecto no encontrado.</p>
         <div class="caja"></div>
     </div>
 <script src="{{asset('build/assets/js/tasks/create.js')}}"></script>

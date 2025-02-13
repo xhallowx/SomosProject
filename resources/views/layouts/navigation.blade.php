@@ -14,7 +14,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center img">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{asset('build/assets/img/tabla3.png')}}">
+                        <img src="{{asset('build/assets/img/table.ico')}}">
                     </a>
                 </div>
 
@@ -28,9 +28,9 @@
             <nav class="navbar navbar-dark navbar-custom">
                 <div class="container-fluid">
                     <div class="center-buttons">
-                        <a class="custom-button" href="{{ route('tasks.create') }}">Table°1</a>
-                        <a class="custom-button" href="table2">Table°2</a>
-                        <a class="custom-button" href="table3">Table°3</a>
+                        <a class="custom-button" href="{{ route('tasks.create') }}">Project</a>
+                        <a class="custom-button" href="{{ route('tasks.tarea') }}">Task</a>
+                        <a class="custom-button" href="{{ route('tasks.observation') }}">Observation</a>
                     </div>
                 </div>
             </nav>
@@ -40,7 +40,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white hover:text-gray-400 focus:outline-none transition ease-in-out duration-150 buttonOption">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>{{ optional(auth()->user())->name ?? 'Invitado' }}</div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -94,8 +94,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-black dark:border-white">
             <div class="px-4">
-                <div class="font-medium text-base text-white dark:text-black">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-white">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-white dark:text-black">{{ optional(auth()->user())->name ?? 'Invitado' }}</div>
+                <div class="font-medium text-sm text-white">{{ optional(auth()->user())->email ?? 'No autenticado' }}</div>
             </div>
 
             <div class="mt-3 space-y-1">

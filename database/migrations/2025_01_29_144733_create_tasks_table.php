@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name_project');
             $table->string('owner');
             $table->string('request_area');
-            $table->enum('priority', ['low', 'medium', 'high']);
+            $table->enum('priority', ['Low', 'Medium', 'High']);
             $table->date('request_date');
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
