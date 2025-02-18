@@ -115,5 +115,4 @@ class ProjectTaskController extends Controller
 
         return view('tasks.observation', compact('projects', 'owners', 'projectNames'));
     }
-
 }
