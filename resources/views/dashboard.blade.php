@@ -1,27 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('build/assets/css/app.css')}}">
-</head>
-<body>
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('content')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class=" dark:bg-black overflow-hidden shadow-sm sm:rounded-lg welcome">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Welcome!") }}
+<h2 class="dashboard">
+    {{ __('Dashboard') }}
+</h2>
+
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class=" dark:bg-black overflow-hidden shadow-sm sm:rounded-lg welcome">
+            <div class="p-6 text-gray-900 dark:text-gray-100 text">
+                <p style="font-size: 20px; filter:drop-shadow(1.5px 1.5px 1.5px #000);">Bienvenido <strong>{{ optional(auth()->user())->name ?? 'Invitado' }}</strong> a Somos Projects!</p>
+                <br>
+                <div style="border: 1px solid #222; padding: 5px; background: #333; border-radius: 10px; filter: drop-shadow(1px 1px 1px #000);">
+                    <p style="font-size: 15px;">Una web dedicada para la gestión de tus proyectos y asignación de tareas.</p>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>    
-</body>
-</html>
+</div>
+
+<section class="circle" id="circle">
+    <div class="section-text">
+        <h2 class="somos">Somos Network...<br /></h2>
+    </div>
+    <div id="mask" class="mask">
+        <div class="section">
+        <h2 class="somos">Internet pero mejor!</h2>
+        </div>
+    </div>
+</section>
+@endsection
