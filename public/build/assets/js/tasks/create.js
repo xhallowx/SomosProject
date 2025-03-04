@@ -26,11 +26,11 @@ document.getElementById('filterOwner').addEventListener('change', function () {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Selecciona todos los formularios que tengan la clase confirm-form
+    // Select all forms that have the confirm-form class
     const forms = document.querySelectorAll("form.confirm-form");
     forms.forEach(form => {
         form.addEventListener("submit", function(event) {
-            // Muestra una alerta de confirmación
+            // Show a confirmation alert
             if (!confirm("Are you sure about creating the project?")) {
                 event.preventDefault();
             }

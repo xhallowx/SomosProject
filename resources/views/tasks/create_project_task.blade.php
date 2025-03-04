@@ -20,14 +20,14 @@
 
         <form action="{{ route('project_tasks.store') }}" method="POST" class="confirm-form">
             @csrf
-            <!-- Campo para el proyecto (inhabilitado) -->
+            <!-- Field for project (disabled) -->
             <div class="form-group">
                 <label for="name_project_display">Project</label>
                 <input type="text" class="form-control" id="name_project_display" value="{{ $project->name_project }}" disabled>
                 <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
             </div>
 
-            <!-- Seleccionar el owner de la tarea pendiente -->
+            <!-- Select the owner of the pending task -->
             <div class="form-group">
                 <label for="owner">Task Owner</label>
                 <select class="form-control" id="owner" name="owner" required>
@@ -38,13 +38,13 @@
                 </select>
             </div>
 
-            <!-- Descripción de la tarea pendiente -->
+            <!-- Description of the pending task -->
             <div class="form-group">
                 <label for="description_task">Task Description</label>
                 <textarea class="form-control descripcion" id="description_task" name="description_task" rows="4" required></textarea>
             </div>
 
-            <!-- Campos de fecha -->
+            <!-- Date fields -->
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="start_date">Start Date</label>
@@ -56,9 +56,9 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="task_date_display">Task Date (Created)</label>
-                    <!-- Se muestra la fecha y hora actual y se bloquea la edición -->
+                    <!-- The current date and time is displayed and editing is blocked -->
                     <?php
-                        // Configurar la zona horaria a Colombia antes de mostrar la fecha
+                    // Set the time zone to Colombia before displaying the date
                         date_default_timezone_set('America/Bogota');
                         $currentDate = date('Y-m-d\TH:i');
                     ?>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <!-- Campo para el estado de la tarea -->
+            <!-- Task status field -->
             <div class="form-group">
                 <label for="task_state">Taks State</label>
                 <select class="form-control" id="task_state" name="task_state" required>

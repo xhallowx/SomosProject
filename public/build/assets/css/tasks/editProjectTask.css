@@ -97,7 +97,6 @@ label {
   filter: drop-shadow(1.5px 1.5px 1.5px #000);
 }
 
-/* Distribución de campos en dos columnas para mayor claridad */
 .form-row {
   display: flex;
   justify-content: space-between;
@@ -117,7 +116,6 @@ label {
     border-radius: 10px;
 }
 
-/* Reorganiza los campos del formulario en columna única */
 .form-row {
     display: flex;
     flex-direction: column;
@@ -128,14 +126,12 @@ label {
     margin-bottom: 15px;
 }
 
-/* Estilo de los campos para un look moderno y futurista */
 .form-control {
     font-size: 1rem;
     padding: 10px;
     border-radius: 5px;
 }
 
-/* Botones adaptados a pantalla completa */
 .btn-primary,
 .btn-secondary {
     margin-bottom: 10px;

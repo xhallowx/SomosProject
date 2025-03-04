@@ -13,7 +13,7 @@
     <div class="container">
         <h2>Search for Projects</h2>
 
-        <!-- Formulario de búsqueda -->
+        <!-- search form -->
         <div class="card">
             <div class="card-body">
                 <form id="searchForm">
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <!-- Resultados de la búsqueda -->
+        <!-- Search results -->
         <div id="results" class="results">
             <p class="sin"><strong> Perform a Search.</strong></p>
         </div>

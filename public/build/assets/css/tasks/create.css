@@ -73,7 +73,7 @@ body,html{
     box-shadow: #222;
 }
 
-/* Estilos para el botón de submit */
+/* Style for the submit button */
 .principal .btn {
     grid-column: span 2;
     padding: 12px 20px;
@@ -116,7 +116,7 @@ body,html{
     font-size: 1.05rem;
 }
 
-/* Estilo para los campos que abarcan dos columnas (como el text area) */
+/* Style for fields that span two columns (such as the text area) */
 .principal .form-control,
 .principal textarea {
     grid-column: span 2;
@@ -186,7 +186,7 @@ hr{
     animation: principal 5s infinite;
 }
 
-/* Cabecera de la tabla */
+/* Table header */
 .PR{
     width: auto;
     /* margin: 25px; */
@@ -203,7 +203,7 @@ thead th {
     font-weight: bold;
 }
 
-/* Cuerpo de la tabla */
+/* Table body */
 tbody tr {
     border-bottom: 1px solid #ddd;
 }
@@ -215,12 +215,12 @@ tbody td {
     color: #000;
 }
 
-/* Efecto hover para las filas */
+/* Hover effect for rows */
 tbody tr:hover {
     background-color: #f1f1f1;
 }
 
-/* Estilo para los botones en las acciones */
+/* Style for buttons in actions */
 .btn {
     padding: 6px 12px;
     font-size: 0.9rem;
@@ -229,7 +229,7 @@ tbody tr:hover {
     transition: background-color 0.3s ease;
 }
 
-/* Botón de edición */
+/* Edit button */
 .btnEdit {
     background-color: #ffc107;
     color: white;
@@ -240,7 +240,7 @@ tbody tr:hover {
     background-color: #e0a800;
 }
 
-/* Botón de eliminación */
+/* Delete button */
 .btnDelete {
     margin-top: 10px;
     background-color: #dc3545;
@@ -256,7 +256,7 @@ form.d-inline {
     margin-left: 10px;
 }
 
-/*Esto hace transparente el boton eliminar*/
+/* This makes the delete button transparent. */
 /* button[type="submit"] {
     background-color: transparent;
     border: none;
@@ -273,18 +273,18 @@ form.d-inline {
 
 @media (max-width: 950px) {
     .principal {
-        margin: 5px auto 0; /* Reduce el margen para pantallas pequeñas */
-        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        margin: 5px auto 0; /* Reduce margin for small screens */
+        grid-template-columns: 1fr; /* Change to a single column */
     }
     .principal .mb-3 {
-        padding: 0 15px; /* Ajusta el padding de cada campo */
+        padding: 0 15px; /* Adjust the padding of each field */
     }
     .principal .btn {
-        grid-column: span 1; /* El botón ocupará una sola columna */
-        width: 80%; /* Aumenta el ancho relativo del botón */
-        transform: translateX(10%); /* Centra el botón en la nueva disposición */
+        grid-column: span 1; /* The button will occupy a single column */
+        width: 80%; /* Increase the relative width of the button */
+        transform: translateX(10%); /* Center the button in the new layout */
     }
-    /* Asegura que todos los campos que antes abarcaban 2 columnas se adapten a 1 columna */
+    /* Ensures that all fields that previously spanned 2 columns fit into 1 column */
     .principal .form-control,
     .principal textarea,
     .descrip {
@@ -306,21 +306,21 @@ form.d-inline {
 }
 
 @media (max-width: 425px) {
-    /* Adaptación del formulario para dispositivos pequeños */
+    /* Adaptation of the form for small devices */
     .principal {
-        margin: 5px auto 0; /* Reducir márgenes laterales */
-        grid-template-columns: 1fr; /* Una sola columna */
+        margin: 5px auto 0; /* Reduce side margins */
+        grid-template-columns: 1fr; /* single column */
         padding: 15px;
     }
     .principal .mb-3 {
-        padding: 0 10px; /* Ajuste de padding para cada campo */
+        padding: 0 10px; /* Padding adjustment for each field */
     }
     .principal .btn {
-        grid-column: span 1; /* El botón ocupa la única columna */
-        width: 90%; /* Aumentar ancho relativo del botón */
-        transform: translateX(5%); /* Centrar el botón */
+        grid-column: span 1; /* The button occupies the only column */
+        width: 90%; /* Increase relative button width */
+        transform: translateX(5%); /* Center the button */
     }
-    /* Asegura que los campos que abarcaban dos columnas se adapten a una sola */
+    /* Ensures that fields that spanned two columns fit into a single column. */
     .principal .form-control,
     .principal textarea,
     .descrip {
@@ -330,7 +330,7 @@ form.d-inline {
         width: 90%;
         margin: 10px auto 0;
     }
-    /* Hacer la tabla responsive con scroll horizontal */
+    /* Make the table responsive with horizontal scrol */
     .table-striped {
         display: block;
         overflow-x: auto;

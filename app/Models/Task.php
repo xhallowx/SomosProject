@@ -21,7 +21,7 @@ class Task extends Model
         'project_state'
     ];
 
-    // Relación con las tareas pendientes asignadas al proyecto
+    // Relationship with pending tasks assigned to the project
     public function projectTasks()
     {
         return $this->hasMany(ProjectTask::class, 'project_id');

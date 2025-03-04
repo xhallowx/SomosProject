@@ -18,7 +18,7 @@
   <div class="container">
     <h2 class="text-center mb-4">Observation of Projects and Tasks</h2>
 
-    <!-- Tabla para filtros de búsqueda -->
+    <!-- Search filter table -->
     <form action="{{ route('tasks.observation') }}" method="GET" class="mb-4 p-3 border rounded">
         <h3>Perform a search</h3>
         <div class="filter">
@@ -47,11 +47,11 @@
     </form>
 
 
-    <!-- Verificación si se encontraron proyectos -->
+    <!-- Check if projects were found -->
     @if($projects->isEmpty())
       <p class="text-center text-danger noFound"><strong> Project not found.</strong></p>
     @else
-      <!-- Tabla de proyectos y tareas -->
+      <!-- Project and task table -->
       @foreach($projects as $project)
         <div class="card mb-3">
           <div class="card-header bg-primary text-white">

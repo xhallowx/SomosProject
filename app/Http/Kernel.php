@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 class Kernel extends HttpKernel
 {
     /**
-     * La pila global de middleware que se ejecuta en cada petición HTTP.
+     * The global middleware stack that is executed on each HTTP request.
      *
      * @var array
      */
@@ -19,7 +19,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * Los grupos de middleware de la aplicación.
+     * The application middleware groups.
      *
      * @var array
      */
@@ -28,11 +28,11 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class, // Opcional
+            // \Illuminate\Session\Middleware\AuthenticateSession::class, // Optional
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\PreventBackHistory::class,  // Middleware personalizado para evitar cacheo
+            \App\Http\Middleware\PreventBackHistory::class,  // Custom middleware to avoid caching 
         ],
 
         'api' => [
@@ -42,7 +42,7 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * Los middleware que se pueden asignar a rutas individualmente.
+     * Middleware that can be assigned to routes individually.
      *
      * @var array
      */

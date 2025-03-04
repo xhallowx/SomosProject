@@ -85,7 +85,7 @@
 
         <hr>
 
-        <!-- Selección de Owner -->
+        <!-- Select Owner -->
         <div class="mb-3 owner">
             <label for="filterOwner" class="filter">Search by Owner : </label>
             <select class="select" id="filterOwner">
