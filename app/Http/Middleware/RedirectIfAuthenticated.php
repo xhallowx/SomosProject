@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     /**
-     * Maneja la petición entrante.
+     * Handles the incomming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/dashboard'); // O la ruta que desees para usuarios autenticados.
+            return redirect('/dashboard'); // Or the route you want for authenticated users
         }
         return $next($request);
     }

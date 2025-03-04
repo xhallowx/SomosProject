@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center mb-4">Asignar Tarea Pendiente al Proyecto: <p class="name">{{ $project->name_project }}</p></h2>
+        <h2 class="text-center mb-4">Assign Pending Task to the Project: <p class="name">{{ $project->name_project }}</p></h2>
         
         @if(session('success'))
             <div id="alert" class="alert alert-success text-center">{{ session('success') }}</div>
@@ -22,16 +22,16 @@
             @csrf
             <!-- Campo para el proyecto (inhabilitado) -->
             <div class="form-group">
-                <label for="name_project_display">Proyecto</label>
+                <label for="name_project_display">Project</label>
                 <input type="text" class="form-control" id="name_project_display" value="{{ $project->name_project }}" disabled>
                 <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
             </div>
 
             <!-- Seleccionar el owner de la tarea pendiente -->
             <div class="form-group">
-                <label for="owner">Owner de la Tarea</label>
+                <label for="owner">Task Owner</label>
                 <select class="form-control" id="owner" name="owner" required>
-                    <option value="">Seleccionar</option>
+                    <option value="">Select</option>
                     @foreach(['Sebastian', 'Samir', 'Diego', 'Edwin', 'Bryan', 'Erick'] as $owner)
                         <option value="{{ $owner }}">{{ $owner }}</option>
                     @endforeach
@@ -40,22 +40,22 @@
 
             <!-- Descripción de la tarea pendiente -->
             <div class="form-group">
-                <label for="description_task">Descripción de la Tarea</label>
+                <label for="description_task">Task Description</label>
                 <textarea class="form-control descripcion" id="description_task" name="description_task" rows="4" required></textarea>
             </div>
 
             <!-- Campos de fecha -->
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <label for="start_date">Fecha Inicio</label>
+                    <label for="start_date">Start Date</label>
                     <input type="date" class="form-control" id="start_date" name="start_date" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="finish_date">Fecha Fin</label>
+                    <label for="finish_date">End Date</label>
                     <input type="date" class="form-control" id="finish_date" name="finish_date" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="task_date_display">Fecha de Tarea (Creación)</label>
+                    <label for="task_date_display">Task Date (Created)</label>
                     <!-- Se muestra la fecha y hora actual y se bloquea la edición -->
                     <?php
                         // Configurar la zona horaria a Colombia antes de mostrar la fecha
@@ -69,7 +69,7 @@
 
             <!-- Campo para el estado de la tarea -->
             <div class="form-group">
-                <label for="task_state">Estado de la Tarea</label>
+                <label for="task_state">Taks State</label>
                 <select class="form-control" id="task_state" name="task_state" required>
                     <option value="Pending">Pending</option>
                     <option value="In Progress">In Progress</option>
@@ -77,7 +77,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Asignar Tarea Pendiente</button>
+            <button type="submit" class="btn btn-primary">Create Pending Task</button>
         </form>
     </div>
 <script src="{{asset('build/assets/js/tasks/taskProject.js')}}"></script>

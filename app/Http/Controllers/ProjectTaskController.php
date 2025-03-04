@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;          // Modelo de proyectos
-use App\Models\ProjectTask;   // Modelo de tareas asignadas a proyectos
+use App\Models\Task;          // Project model
+use App\Models\ProjectTask;   // Model of tasks assigned to projects
 use Illuminate\Http\Request;
+use App\Http\Controllers\OccupancyController;
 
 class ProjectTaskController extends Controller
 {
-    // Muestra el formulario para asignar una tarea pendiente a un proyecto
+    // Shows the form to assign a pending task to a project
     public function create(Request $request)
     {
-        // Se espera recibir el id del proyecto por query string, por ejemplo: ?project_id=5
+        // It is expected to receive the project id by query string, for example: ?project_id=5
         $project_id = $request->query('project_id');
         $project = Task::findOrFail($project_id);
         return view('tasks.create_project_task', compact('project'));
     }
 
-    // Almacena la tarea pendiente para el proyecto
     public function store(Request $request)
     {
         $request->validate([
@@ -30,30 +30,28 @@ class ProjectTaskController extends Controller
             'task_state'       => 'required|in:Pending,In Progress,Completed'
         ]);
 
-        $taskDate = $request->task_date ? str_replace('T', ' ', $request->task_date) : now();
-    
-        ProjectTask::create([
-            'project_id'       => $request->project_id,
-            'owner'            => $request->owner,
-            'description_task' => $request->description_task,
-            'start_date'       => $request->start_date,
-            'finish_date'      => $request->finish_date,
-            'task_date'        => $taskDate,
-            'task_state'       => $request->task_state
-        ]);
+        $owner = $request->owner;
+        $occupancyData = OccupancyController::getOwnerOccupancy($owner);
+
+        if ($occupancyData['occupancy'] >= 100) {
+            return redirect()->route('summary')
+                            ->with('error', "$owner it already has 100% occupancy.");
+        }
+
+        ProjectTask::create($request->all());
 
         return redirect()->route('tasks.observation', ['project_id' => $request->project_id])
-                         ->with('success', 'Tarea asignada al proyecto correctamente.');
+                        ->with('success', 'Task assigned to the project correctly!');
     }
 
-    // Muestra el formulario para editar una tarea pendiente
+    // Shows the form to edit a pending task
     public function edit($id)
     {
         $projectTask = ProjectTask::findOrFail($id);
         return view('tasks.edit_project_task', compact('projectTask'));
     }
 
-    // Actualiza la tarea pendiente
+    // Update pending task
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -78,25 +76,25 @@ class ProjectTaskController extends Controller
             'task_state'       => $request->task_state
         ]);
 
-        return redirect()->route('tasks.observation')->with('success', 'Tarea del proyecto actualizada correctamente.');
+        return redirect()->route('tasks.observation')->with('success', 'Project Task updated successfully!');
     }
 
-    // Elimina la tarea pendiente
+    // Delete the pending task
     public function destroy($id)
     {
         $projectTask = ProjectTask::findOrFail($id);
         $projectTask->delete();
 
-        return redirect()->route('tasks.observation')->with('success', 'Tarea del proyecto eliminada correctamente.');
+        return redirect()->route('tasks.observation')->with('success', 'Project Task successfully deleted!');
     }
 
-    // Muestra la vista de observación: todos los proyectos con sus tareas asignadas
+    // Shows the observation view: all projects with their assigned tasks
     public function observation(Request $request)
     {
         $ownerFilter = $request->query('owner');
         $projectFilter = $request->query('project');
 
-        // Construir la consulta para filtrar según los parámetros
+        // Build the query to filter based on parameters
         $query = Task::with('projectTasks');
 
         if ($ownerFilter && $ownerFilter !== 'Seleccionar') {
@@ -109,7 +107,7 @@ class ProjectTaskController extends Controller
 
         $projects = $query->get();
 
-        // Obtener listas de owners y nombres de proyectos para el formulario de búsqueda
+        // Get lists of owners and project names for the search form
         $owners = Task::select('owner')->distinct()->pluck('owner');
         $projectNames = Task::select('name_project')->distinct()->pluck('name_project');
 

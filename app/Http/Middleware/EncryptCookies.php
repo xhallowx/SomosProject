@@ -7,11 +7,11 @@ use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 class EncryptCookies extends Middleware
 {
     /**
-     * Los nombres de las cookies que no deben ser encriptadas.
+     * The names of the cookies that should not be encrypted.
      *
      * @var array
      */
     protected $except = [
-        // Agrega aquí las cookies que no deseas encriptar
+        // Add the cookies here that you do not want to encrypt
     ];
 }

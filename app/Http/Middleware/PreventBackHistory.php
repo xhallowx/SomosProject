@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PreventBackHistory
 {
     /**
-     * Maneja la petición entrante y añade cabeceras para evitar el cacheo.
+     * Handles the incoming request and adds headers to avoid caching.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

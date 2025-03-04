@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Http\Controllers\OccupancyController;
 
 class TaskController extends Controller
 {
-    // Muestra la vista de listado de proyectos (creación de proyectos)
+    // Shows the project listing view (project creation)
     public function create()
     {
-        // Se obtienen todos los proyectos creados
+        // All created projects are obtained
         $tasks = Task::all();
         return view('tasks.create', compact('tasks'));
     }
 
-    // Almacena un nuevo proyecto (tarea en el sentido de proyecto)
+    // Stores a new project (task in the sense of project)
     public function store(Request $request)
     {
         $request->validate([
@@ -29,23 +30,29 @@ class TaskController extends Controller
             'project_description' => 'required',
             'project_state'       => 'required'
         ]);
-    
-        try {
-            Task::create($request->all());
-            return redirect()->route('tasks.create')->with('success', 'Proyecto creado con éxito!');
-        } catch (\Exception $e) {
-            return redirect()->route('tasks.create')->with('error', 'Hubo un problema al crear el proyecto: ' . $e->getMessage());
+
+        $owner = $request->owner;
+        $occupancyData = OccupancyController::getOwnerOccupancy($owner);
+
+        if ($occupancyData['occupancy'] >= 100) {
+            return redirect()->route('summary')
+                             ->with('error', "$owner it already has 100% occupancy.");
         }
+
+        Task::create($request->all());
+
+        return redirect()->route('tasks.create')
+                        ->with('success', 'Project created successfully!');
     }
 
-    // Muestra la vista para editar un proyecto
+    // Shows the view to edit a project
     public function edit($id)
     {
         $task = Task::findOrFail($id);
         return view('tasks.edit', compact('task'));
     }
 
-    // Actualiza un proyecto
+    // Update a project
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -63,17 +70,17 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->update($request->all());
     
-        return redirect()->route('tasks.create')->with('success', 'Proyecto editado con éxito!');
+        return redirect()->route('tasks.create')->with('success', 'Project edited successfully!');
     }
 
-    // Elimina un proyecto
+    // Delete a project
     public function destroy(Task $task)
     {
         $task->delete();
-        return redirect()->route('tasks.create')->with('success', 'Proyecto eliminado con éxito!');
+        return redirect()->route('tasks.create')->with('success', 'Project deleted successfully!');
     }
 
-    // Funciones de búsqueda en la vista "tarea.blade.php"
+    // Search functions in the "task.blade.php" view
     public function showSearchForm()
     {
         $owners = Task::distinct()->pluck('owner');

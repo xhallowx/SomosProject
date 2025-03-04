@@ -9,11 +9,11 @@
     <section class="infoPerfil">
         <header>
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100" style="color: #fff;">
-                {{ __('Información de Perfil') }}
+                {{ __('Profile information') }}
             </h2>
 
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400" style="color: #D1D1D1;">
-                {{ __("Actualiza la información de tu cuenta y tu correo electrónico.") }}
+                {{ __("Update your account information and email.") }}
             </p>
         </header>
 
@@ -26,29 +26,29 @@
             @method('patch')
 
             <div>
-                <x-input-label for="name" style="color: #fff;" :value="__('Nombre')" />
+                <x-input-label for="name" style="color: #fff;" :value="__('Name')" />
                 <x-text-input id="name" name="name" type="text" class="mt-1 block w-full inp" :value="old('name', $user->name)" required autofocus autocomplete="name" />
                 <x-input-error class="mt-2" :messages="$errors->get('name')" />
             </div>
 
             <div>
-                <x-input-label for="email" style="color: #fff;" :value="__('Correo Electrónico')" />
+                <x-input-label for="email" style="color: #fff;" :value="__('Email')" />
                 <x-text-input id="email" name="email" type="email" class="mt-1 block w-full inp" :value="old('email', $user->email)" required autocomplete="username" />
                 <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
                 @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                     <div>
                         <p class="text-sm mt-2 text-gray-800 dark:text-gray-200" style="color: #35ca3e;">
-                            {{ __('Tu cuenta no ha sido verificada.') }}
+                            {{ __('Your account has no been verified') }}
 
                             <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                                {{ __('Haz clic aquí para reenviar el enlace de verificación de verificación.') }}
+                                {{ __('Click here to resend the verification verification link.') }}
                             </button>
                         </p>
 
                         @if (session('status') === 'verification-link-sent')
                             <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                                {{ __('Un nuevo link de verificación ha sido enviado.') }}
+                                {{ __('A new verification link has been sent.') }}
                             </p>
                         @endif
                     </div>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <x-primary-button class="guardar">{{ __('Guardar') }}</x-primary-button>
+                <x-primary-button class="guardar">{{ __('Save') }}</x-primary-button>
 
                 @if (session('status') === 'profile-updated')
                     <p
@@ -65,7 +65,7 @@
                         x-transition
                         x-init="setTimeout(() => show = false, 2000)"
                         class="text-sm text-gray-600 dark:text-gray-400" style="color: #35ca3e;"
-                    >{{ __('Guardado.') }}</p>
+                    >{{ __('Saved') }}</p>
                 @endif
             </div>
         </form>

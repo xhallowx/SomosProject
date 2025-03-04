@@ -21,7 +21,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex inicio">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Inicio') }}
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -31,6 +31,7 @@
                         <a class="custom-button" href="{{ route('tasks.create') }}">Project</a>
                         <a class="custom-button" href="{{ route('tasks.tarea') }}">Task</a>
                         <a class="custom-button" href="{{ route('tasks.observation') }}">Observation</a>
+                        <a class="custom-button" href="{{ route('summary') }}">Summary</a>
                     </div>
                 </div>
             </nav>
@@ -53,7 +54,7 @@
                     <x-slot name="content">
                         <div class="perfil">
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Perfil') }}
+                                {{ __('Profile') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -63,7 +64,7 @@
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Cerrar Sesión') }}
+                                    {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
                         </div>    
@@ -87,7 +88,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Inicio') }}
+                {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
 
@@ -100,7 +101,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Perfil') }}
+                    {{ __('Profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -110,7 +111,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Cerrar Sesión') }}
+                        {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

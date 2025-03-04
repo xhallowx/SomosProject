@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" href="{{asset('somos.ico')}}" type="image/x-icon">
-        <title>Project</title>
+        <title>Somos Project</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -64,5 +64,5 @@
             setInterval(checkSession, 10000);
         </script>
 <script src="{{asset('build/assets/js/tasks/dashboard.js')}}"></script>
-    </body>
+</body>
 </html>

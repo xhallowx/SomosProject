@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="mb-4 edit">Editar Tarea</h2>
+        <h2 class="mb-4 edit">Edit Project</h2>
 
         @if (session('success'))
             <div id="alert" class="alert alert-success">
@@ -85,7 +85,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
     </div>
     <div class="caja"></div>

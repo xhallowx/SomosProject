@@ -6,5 +6,5 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
 class VerifyCsrfToken extends Middleware
 {
-    // Puedes mantener la configuración por defecto
+    // You can keep the default settings
 }

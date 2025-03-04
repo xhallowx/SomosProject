@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Authenticate
 {
     /**
-     * Maneja la petición entrante.
+     * Handles the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -19,7 +19,7 @@ class Authenticate
     public function handle(Request $request, Closure $next, ...$guards)
     {
         if (Auth::guard()->guest()) {
-            // Redirige al login con un mensaje si el usuario no está autenticado.
+            // Redirect to login with a message if the user is not authenticated.
             session()->flash('message', 'Debes iniciar sesión para acceder.');
             return redirect()->route('login');
         }

@@ -17,7 +17,7 @@
         </div>
     @endif
     <div class="container">
-        <h2 class="mb-4 register">Registrar Proyecto</h2>
+        <h2 class="mb-4 register">Register Projects</h2>
 
         {{-- Formulario de creación de tareas --}}
         <form action="{{ route('tasks.store') }}" method="POST" class="principal confirm-form">
@@ -80,16 +80,16 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
 
         <hr>
 
         <!-- Selección de Owner -->
         <div class="mb-3 owner">
-            <label for="filterOwner" class="filter">Buscar Owner : </label>
+            <label for="filterOwner" class="filter">Search by Owner : </label>
             <select class="select" id="filterOwner">
-                <option value="">Seleccionar</option>
+                <option value="">Select</option>
                 @foreach ($tasks->pluck('owner')->unique() as $owner)
                     <option value="{{ $owner }}">{{ $owner }}</option>
                 @endforeach
@@ -97,47 +97,52 @@
         </div>
 
         {{-- Tabla de tareas registradas --}}
-        <h2 class="mt-5 register">Proyectos Registrados</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Owner</th>
-                    <th>Request Area</th>
-                    <th>Priority</th>
-                    <th>Request Date</th>
-                    <th>Start Date</th>
-                    <th>Finish Date</th>
-                    <th>Project Description</th>
-                    <th>Project State</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="taskTable">
-                @foreach ($tasks as $task)
-                    <tr class="task-row" data-owner="{{ $task->owner }}">
-                        <td>{{ $task->name_project }}</td>
-                        <td>{{ $task->owner }}</td>
-                        <td>{{ $task->request_area }}</td>
-                        <td>{{ $task->priority }}</td>
-                        <td>{{ $task->request_date }}</td>
-                        <td>{{ $task->start_date }}</td>
-                        <td>{{ $task->finish_date }}</td>
-                        <td style="max-width: 100px; white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">{{ $task->project_description }}</td>
-                        <td>{{ $task->project_state }}</td>
-                        <td>
-                            <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning btn-sm btnEdit">Edit</a>
-                            <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm btnDelete" onclick="return confirm('Estas seguro?')">Delete</button>
-                            </form>
-                        </td>
+        <div class="PR">
+            <h2 class="mt-5 register">Registered Projects</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Owner</th>
+                        <th>Request Area</th>
+                        <th>Priority</th>
+                        <th>Request Date</th>
+                        <th>Start Date</th>
+                        <th>Finish Date</th>
+                        <th>Project Description</th>
+                        <th>Project State</th>
+                        <th>Actions</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <p id="noResults" class="text-center text-danger mt-3" style="display: none;">Proyecto no encontrado.</p>
+                </thead>
+                <tbody id="taskTable">
+                    @forelse ($tasks as $task)
+                        <tr class="task-row" data-owner="{{ $task->owner }}">
+                            <td>{{ $task->name_project }}</td>
+                            <td>{{ $task->owner }}</td>
+                            <td>{{ $task->request_area }}</td>
+                            <td>{{ $task->priority }}</td>
+                            <td>{{ $task->request_date }}</td>
+                            <td>{{ $task->start_date }}</td>
+                            <td>{{ $task->finish_date }}</td>
+                            <td style="max-width: 100px; white-space: normal; word-wrap: break-word; overflow-wrap: break-word;">{{ $task->project_description }}</td>
+                            <td>{{ $task->project_state }}</td>
+                            <td>
+                                <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning btn-sm btnEdit">Edit</a>
+                                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm btnDelete" onclick="return confirm('You´re sure?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                    <tr>
+                        <td colspan="10" class="text-center"><strong>there are no registered projects.</strong></td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>     
         <div class="caja"></div>
     </div>
 <script src="{{asset('build/assets/js/tasks/create.js')}}"></script>
