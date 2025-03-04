@@ -1,0 +1,39 @@
+.infoPerfil{
+    background: transparent;
+}
+
+.guardar{
+    background: #e4e4e4;
+    border: 1px solid #111;
+    transition: all .5s ease;
+}
+
+.guardar:hover{
+    filter: drop-shadow(0 0 3px #777);
+    background: #fff;
+    transform: scale(1.05)
+}
+
+.inp{
+    background: linear-gradient(35deg, #1a1a1a, #333);
+}
+
+.delete{
+    background: #f31010;
+    border: 1px solid #111;
+    transition: all .5s ease;
+}
+
+.delete:hover{
+    filter: drop-shadow(0 0 3px #111);
+    background: #a20d0d;
+    transform: scale(1.05)
+}
+
+.confirDelete{
+    background: #313131;
+}
+
+.password{
+    background: linear-gradient(35deg, #1a1a1a, #333);
+}

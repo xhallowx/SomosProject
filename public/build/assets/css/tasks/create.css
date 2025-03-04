@@ -1,0 +1,339 @@
+body,html{
+    margin: 0;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.alert {
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    position: absolute;
+    right: 5px;
+    width: 20%;
+    z-index: 1;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #176429;
+}
+
+.alert.fade {
+    opacity: 0;
+}
+
+.register, .edit{
+    color: #fff;
+    font-size: 1.5rem;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+    margin-top: 20px;
+}
+
+.principal{
+    margin: 15px auto 0;
+    width: 70%;
+    border-radius: 15px;
+    display: grid;
+    background: linear-gradient(35deg, #222, #444);
+    grid-template-columns: 2fr 2fr;
+    padding: 25px;
+    filter: drop-shadow(3px 3px 3px #000);
+}
+
+.principal .mb-3 {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 0 30px 0 30px;
+}
+
+.principal .form-label {
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+    color: #fff;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+.principal .form-control {
+    padding: 10px;
+    font-size: 1.05rem;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin: 0px 0px 10px 0px;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+}
+
+.principal .form-control:focus {
+    border-color: #333;
+    box-shadow: #222;
+}
+
+/* Estilos para el botón de submit */
+.principal .btn {
+    grid-column: span 2;
+    padding: 12px 20px;
+    background-color: #228a22;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 15px 0 15px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 50%;
+    transform: translate(50%);
+    filter: drop-shadow(1.5px 1.5px 1.5px #111);
+    transition: all 0.3s ease;
+}
+
+.principal .btn:hover {
+    background-color: #29a522;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+.btn-secondary{
+    position: absolute;
+    margin: 10px 10px 10px 10px;
+    padding: 5px;
+    background: linear-gradient(330deg, #888, #555);
+    border-radius: 10px;
+    z-index: 1;
+    filter: drop-shadow(1px 1px 1px #111);
+    transition: all .5s ease;
+    color: #fff;
+    border: 1.5px solid #333;
+}
+
+.btn-secondary:hover{
+    background: linear-gradient(335deg, #8c8c8c, #5f5f5f);
+    transform: scale(1.02);
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+    color: #e3e3e3;
+    font-size: 1.05rem;
+}
+
+/* Estilo para los campos que abarcan dos columnas (como el text area) */
+.principal .form-control,
+.principal textarea {
+    grid-column: span 2;
+}
+
+.descrip{
+    grid-column: span 2;
+    color: #fff;
+    filter: drop-shadow(2px 2px 2px #000);
+    margin-bottom: 5px;
+}
+
+.descripcion{
+    border-radius: 10px;
+    color: #000;
+    font-size: 1.05rem;
+    min-height: 49px;
+    max-height: 150px;
+    height: 49px;
+    border: 2px solid #333;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+hr{
+    border: 1px solid transparent;
+}
+
+.owner {
+    position: relative;
+    padding: 10px;
+    background: linear-gradient(90deg, #444, #222);
+    background-size: 200%;
+    border-radius: 10px;
+    margin: 10px auto 0;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+    border: 1px solid #333;
+    animation: owner 5s infinite;
+    max-width: 50%;
+}
+
+@keyframes owner{
+    0%, 100%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100%;
+    }
+}
+
+.filter{
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.select{
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.table-striped {
+    margin: 10px 100px 10px 100px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid #222;
+    animation: principal 5s infinite;
+}
+
+/* Cabecera de la tabla */
+.PR{
+    width: auto;
+    /* margin: 25px; */
+}
+
+thead {
+    background-color: #7f7f7f;
+    color: white;
+}
+
+thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Cuerpo de la tabla */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 1.05rem;
+    color: #000;
+}
+
+/* Efecto hover para las filas */
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para los botones en las acciones */
+.btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Botón de edición */
+.btnEdit {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+}
+
+.btnEdit:hover {
+    background-color: #e0a800;
+}
+
+/* Botón de eliminación */
+.btnDelete {
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btnDelete:hover {
+    background-color: #c82333;
+}
+
+form.d-inline {
+    margin-left: 10px;
+}
+
+/*Esto hace transparente el boton eliminar*/
+/* button[type="submit"] {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+} */
+
+.caja{
+    width: 100%;
+    background: transparent;
+    margin: 0px 0px 0px 0px;
+    padding: 5px;
+}
+
+@media (max-width: 950px) {
+    .principal {
+        margin: 5px auto 0; /* Reduce el margen para pantallas pequeñas */
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+    }
+    .principal .mb-3 {
+        padding: 0 15px; /* Ajusta el padding de cada campo */
+    }
+    .principal .btn {
+        grid-column: span 1; /* El botón ocupará una sola columna */
+        width: 80%; /* Aumenta el ancho relativo del botón */
+        transform: translateX(10%); /* Centra el botón en la nueva disposición */
+    }
+    /* Asegura que todos los campos que antes abarcaban 2 columnas se adapten a 1 columna */
+    .principal .form-control,
+    .principal textarea,
+    .descrip {
+        grid-column: span 1;
+    }
+    .PR{
+        width: 90%;
+        margin: 10px auto 0;
+    }
+    .table-striped {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .btn-secondary{
+        padding: 3px;
+        margin: 7px 7px 7px 7px;
+    }
+}
+
+@media (max-width: 425px) {
+    /* Adaptación del formulario para dispositivos pequeños */
+    .principal {
+        margin: 5px auto 0; /* Reducir márgenes laterales */
+        grid-template-columns: 1fr; /* Una sola columna */
+        padding: 15px;
+    }
+    .principal .mb-3 {
+        padding: 0 10px; /* Ajuste de padding para cada campo */
+    }
+    .principal .btn {
+        grid-column: span 1; /* El botón ocupa la única columna */
+        width: 90%; /* Aumentar ancho relativo del botón */
+        transform: translateX(5%); /* Centrar el botón */
+    }
+    /* Asegura que los campos que abarcaban dos columnas se adapten a una sola */
+    .principal .form-control,
+    .principal textarea,
+    .descrip {
+        grid-column: span 1;
+    }
+    .PR{
+        width: 90%;
+        margin: 10px auto 0;
+    }
+    /* Hacer la tabla responsive con scroll horizontal */
+    .table-striped {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

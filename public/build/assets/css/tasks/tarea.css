@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: auto;
+    margin: 50px 200px 20px 200px;
+    padding: 20px;
+    background: linear-gradient(45deg, #444, #222);
+    border-radius: 10px;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+}
+
+h2 {
+    font-size: 25px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+}
+
+.sin{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.card {
+    background: linear-gradient(45deg, #222, #444);
+    border-radius: 8px;
+    overflow: hidden;
+    filter: drop-shadow(-1px -1px 1.5px #000);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    background-color: #555;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.form-control:hover {
+    background-color: #666;
+    border: 1px solid #000;
+}
+
+.boton {
+    width: 50%;
+    transform: translate(50%);
+    padding: 10px 20px;
+    background-color: #2e881c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+}
+
+.boton:hover {
+    background-color: #26b31e;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+.select-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3a3a3a;
+    border: 1px solid #000;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    border: 1px solid #111;
+    background-color: #3c3c3c;
+    outline: none;
+}
+
+select option {
+    background-color: #333;
+    color: white;
+}
+
+.results {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 3px #000);
+}
+
+.futuristic-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    background: #1f1f1f; 
+    color: #e0e0e0;
+}
+
+.futuristic-table thead {
+    background: linear-gradient(25deg, #2a2a2a, gray);
+    border: 1px solid #000;
+    filter: drop-shadow(0px -1.5px 1.5px #000);
+}
+
+.futuristic-table thead th {
+    padding: 12px 15px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #333;
+}
+
+.futuristic-table tbody tr {
+    border-bottom: 1px solid #333;
+    transition: background 0.3s ease;
+}
+
+.futuristic-table tbody tr:hover {
+    background: #2f2f2f;
+}
+
+.futuristic-table tbody td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.crear{
+    border-radius: 10px;
+    background: #61a014;
+    color: #fff;
+    padding: 5px;
+    filter: drop-shadow(1px 1px 1px #000);
+}
+
+.crear:hover{
+    filter: drop-shadow(2px 2px 2px #000);
+}
+
+@media (max-width: 768px) {
+    /* Reducir márgenes y padding del contenedor para pantallas medianas */
+    .container {
+        margin: 30px 30px 20px 30px;
+        padding: 15px;
+    }
+    /* Adaptar el layout del formulario para que se acomode dinámicamente */
+    .form {
+        /* Se utilizan columnas flexibles para que, según el ancho disponible,
+           se muestren en una o dos columnas */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+    /* Ajustes de los campos del formulario para mayor legibilidad en pantallas medianas */
+    .form-control {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+    /* Centrar y ajustar el botón de búsqueda */
+    .boton {
+        width: 80%;
+        transform: translateX(10%);
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 425px) {
+    /* Reducir márgenes del contenedor para pantallas pequeñas */
+    .container {
+        margin: 20px 10px;
+    }
+    /* Adaptar la cuadrícula del formulario a una sola columna */
+    .form {
+        grid-template-columns: 1fr;
+    }
+    /* Ajustar el botón para centrarlo y adaptarlo al nuevo ancho */
+    .boton {
+        width: 90%;
+        transform: translateX(5%);
+    }
+    /* Hacer que la tabla tenga scroll horizontal para ver toda la información */
+    .futuristic-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

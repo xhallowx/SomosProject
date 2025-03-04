@@ -1,0 +1,179 @@
+/*Apartado de navigation*/
+
+.body{
+    background: linear-gradient(90deg, #0a0a0a, #333);
+    margin: 0;
+    width: 100%;
+}
+
+.navigation{
+    background: #2a2a2a;
+}
+
+.navbar-custom {
+    padding: 30px 0px;
+    position: relative;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.02);
+    transition: .5s;
+}
+
+.center-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+}
+
+.custom-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 0px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+    filter: drop-shadow(1px 1px 1px #111);
+}
+
+.custom-button:hover {
+    transform: scale(1.03);
+    animation: buttons 3s infinite;
+    transition: .5s;
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+}
+
+.img{
+    transition: .5s ease;
+    filter: drop-shadow(1px 1px 1px #777);
+}
+
+.img:hover{
+    filter: drop-shadow(1.5px 1.5px 1.5px #7b7b7b);
+    transform: scale(1.03);
+}
+
+.inicio{
+    transition: .5s ease;
+}
+
+.inicio:hover{
+    transform: scale(1.03);
+}
+
+.perfil{
+    background: #3f3f3f; 
+    margin: -4px; 
+    border-radius: 10px;
+}
+
+/* Apartado del dashboard */
+.dashboard {
+    color: #f3f3f3;
+    background: linear-gradient(to right, #333, #1f1f1f);
+    padding: 15px;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    filter: drop-shadow(0 1.5px 1.5px #000);
+}
+
+.welcome{
+    top: 1;
+    width: 50%;
+    transform: translate(50%);
+    background: linear-gradient(90deg, #3c3c3c, #1f1f1f, #3c3c3c);
+    background-size: 200%;
+    padding: 5px;
+    font-size: 1.1rem;
+    border: 1px solid #333;
+    animation: welcome 10s infinite;
+}
+
+.info{
+    border: 1px solid #111;
+    animation: info 5s infinite;
+    background: linear-gradient(45deg, #1a1a1a, #555);
+    filter: drop-shadow(1.5px 1.5px 1.5px #000);
+}
+
+@keyframes welcome{
+    0%,100%{
+        filter: drop-shadow(1.5px 1.5px 1.5px #111);
+        background-position: 0 50%;
+    }
+    50%{
+        filter: drop-shadow(2px 2px 2px #000);
+        background-position: 100%;
+    }
+}
+
+.circle {
+    width: 80%;
+    height: 250px;
+    margin: 10px auto 0;
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    filter: drop-shadow(1px 1px 1px #000);
+    border-radius: 50px;
+}
+
+.somos{
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    font-family: "Dancing Script", cursive;
+    color: #e3e3e3;
+    text-align: center;
+    letter-spacing: 3px;
+    filter: drop-shadow(2px 2px 3px #000);
+}
+
+.mask {
+    position: absolute;
+    opacity: 0;
+    mask-image: url(../img/circle.svg);
+    mask-size: 25px;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: opacity 0.3s ease, background 0.3s ease, mask-size 0.3s ease;
+}
+
+.mask:hover {
+    opacity: 1;
+    /* background: linear-gradient(to right , #555, #222); */
+    background-image: url('/build/assets/img/network.png');
+    mask-size: 300px;
+}
+
+@media (max-width: 768px){
+    .custom-button{
+        padding: 0px 5px;
+    }
+    .welcome{
+        border-radius: 15px;
+    }
+}
+@media (max-width: 425px){
+    .custom-button{
+        padding: 0 0px;
+    }
+    .welcome{
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,6 @@
+body,html{
+    margin: 0;
+    top: 0;
+    text-align: center;
+    background: linear-gradient(25deg, #555, #999);
+}
