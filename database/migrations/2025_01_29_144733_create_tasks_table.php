@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
             $table->text('project_description');
-            $table->enum('project_state', ['Pending', 'In Progress', 'Completed'])->default('Pending');
+            $table->enum('project_state', ['Pending', 'In Progress', 'Completed', 'Blocked'])->default('Pending');
             $table->timestamps();
         });
     }

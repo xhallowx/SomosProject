@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\OccupancyController;
@@ -12,8 +13,9 @@ class TaskController extends Controller
     public function create()
     {
         // All created projects are obtained
+        $users = User::all();
         $tasks = Task::all();
-        return view('tasks.create', compact('tasks'));
+        return view('tasks.create', compact('tasks', 'users'));
     }
 
     // Stores a new project (task in the sense of project)
@@ -49,7 +51,8 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::findOrFail($id);
-        return view('tasks.edit', compact('task'));
+        $users = User::all();
+        return view('tasks.edit', compact('task', 'users'));
     }
 
     // Update a project

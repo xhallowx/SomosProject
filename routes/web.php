@@ -43,6 +43,7 @@ Route::get('/summary', function () {
     return view('tasks.summary', compact('summary'));
 })->name('summary');
 
+
 Route::get('/check-session', function () {
     return response()->json(['authenticated' => Auth::check()]);
 });

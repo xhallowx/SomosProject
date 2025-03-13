@@ -31,8 +31,8 @@
                 <label for="owner">Task Owner</label>
                 <select class="form-control" id="owner" name="owner" required>
                     <option value="">Select</option>
-                    @foreach(['Sebastian', 'Samir', 'Diego', 'Edwin', 'Bryan', 'Erick'] as $owner)
-                        <option value="{{ $owner }}" {{ $projectTask->owner == $owner ? 'selected' : '' }}>{{ $owner }}</option>
+                    @foreach($users as $user)
+                        <option value="{{ $user->name }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -72,6 +72,7 @@
                     <option class="option" value="Pending" {{ $projectTask->task_state == 'Pending' ? 'selected' : '' }}>Pending</option>
                     <option class="option" value="In Progress" {{ $projectTask->task_state == 'In Progress' ? 'selected' : '' }}>In Progress</option>
                     <option class="option" value="Completed" {{ $projectTask->task_state == 'Completed' ? 'selected' : '' }}>Completed</option>
+                    <option class="option" value="Blocked" {{ $projectTask->task_state == 'Blocked' ? 'selected' : '' }}>Blocked</option>
                 </select>
             </div>
 

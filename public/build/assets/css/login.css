@@ -22,6 +22,17 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    animation: container 7s infinite;
+}
+
+@keyframes container{
+    0%,100%{
+        filter:drop-shadow(0 0 10px #000);
+    }
+    50%{
+        filter: drop-shadow(0 0 0 transparent);
+    }
+
 }
 
 .login{

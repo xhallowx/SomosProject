@@ -132,6 +132,7 @@
     font-family: "Dancing Script", cursive;
     color: #e3e3e3;
     text-align: center;
+    user-select: none;
     letter-spacing: 3px;
     filter: drop-shadow(2px 2px 3px #000);
 }

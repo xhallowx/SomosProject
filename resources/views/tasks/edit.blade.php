@@ -33,12 +33,9 @@
             <div class="mb-3">
                 <label for="owner" class="form-label">Owner</label>
                 <select class="form-control" id="owner" name="owner" required>
-                    <option value="Sebastian" {{ $task->owner == 'Sebastian' ? 'selected' : '' }}>Sebastian</option>
-                    <option value="Samir" {{ $task->owner == 'Samir' ? 'selected' : '' }}>Samir</option>
-                    <option value="Diego" {{ $task->owner == 'Diego' ? 'selected' : '' }}>Diego</option>
-                    <option value="Edwin" {{ $task->owner == 'Edwin' ? 'selected' : '' }}>Edwin</option>
-                    <option value="Bryan" {{ $task->owner == 'Bryan' ? 'selected' : '' }}>Bryan</option>
-                    <option value="Erick" {{ $task->owner == 'Erick' ? 'selected' : '' }}>Erick</option>
+                    @foreach($users as $user)
+                        <option value="{{ $user->name }}">{{ $user->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -82,6 +79,7 @@
                     <option value="Pending" {{ $task->project_state == 'Pending' ? 'selected' : '' }}>Pending</option>
                     <option value="In Progress" {{ $task->project_state == 'In Progress' ? 'selected' : '' }}>In Progress</option>
                     <option value="Completed" {{ $task->project_state == 'Completed' ? 'selected' : '' }}>Completed</option>
+                    <option value="Blocked" {{ $task->project_state == 'Blocked' ? 'selected' : '' }}>Blocked</option>
                 </select>
             </div>
 

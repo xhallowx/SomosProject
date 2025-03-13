@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Task;          // Project model
 use App\Models\ProjectTask;   // Model of tasks assigned to projects
 use Illuminate\Http\Request;
@@ -13,9 +14,10 @@ class ProjectTaskController extends Controller
     public function create(Request $request)
     {
         // It is expected to receive the project id by query string, for example: ?project_id=5
+        $users = User::all();
         $project_id = $request->query('project_id');
         $project = Task::findOrFail($project_id);
-        return view('tasks.create_project_task', compact('project'));
+        return view('tasks.create_project_task', compact('project', 'users'));
     }
 
     public function store(Request $request)
@@ -27,7 +29,7 @@ class ProjectTaskController extends Controller
             'start_date'       => 'required|date',
             'finish_date'      => 'required|date|after_or_equal:start_date',
             'task_date'        => 'nullable|date',
-            'task_state'       => 'required|in:Pending,In Progress,Completed'
+            'task_state'       => 'required|in:Pending,In Progress,Completed,Blocked'
         ]);
 
         $owner = $request->owner;
@@ -47,8 +49,9 @@ class ProjectTaskController extends Controller
     // Shows the form to edit a pending task
     public function edit($id)
     {
+        $users = User::all();
         $projectTask = ProjectTask::findOrFail($id);
-        return view('tasks.edit_project_task', compact('projectTask'));
+        return view('tasks.edit_project_task', compact('projectTask', 'users'));
     }
 
     // Update pending task
@@ -60,7 +63,7 @@ class ProjectTaskController extends Controller
             'start_date'       => 'required|date',
             'finish_date'      => 'required|date|after_or_equal:start_date',
             'task_date'        => 'nullable|date',
-            'task_state'       => 'required|in:Pending,In Progress,Completed'
+            'task_state'       => 'required|in:Pending,In Progress,Completed,Blocked'
         ]);
     
         $projectTask = ProjectTask::findOrFail($id);

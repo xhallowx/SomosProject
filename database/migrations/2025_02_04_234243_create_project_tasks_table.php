@@ -16,7 +16,7 @@ class CreateProjectTasksTable extends Migration
             $table->date('start_date');
             $table->date('finish_date');
             $table->dateTime('task_date')->nullable();
-            $table->enum('task_state', ['Pending', 'In Progress', 'Completed'])->default('Pending');
+            $table->enum('task_state', ['Pending', 'In Progress', 'Completed', 'Blocked'])->default('Pending');
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('tasks')->onDelete('cascade');

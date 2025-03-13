@@ -31,8 +31,8 @@
                 <label for="owner" class="form-label">Owner</label>
                 <select class="form-control" id="owner" name="owner" required>
                     <option value="" disabled selected>Select Owner</option>
-                    @foreach(['Sebastian', 'Samir', 'Diego', 'Edwin', 'Bryan', 'Erick'] as $owner)
-                        <option value="{{ $owner }}">{{ $owner }}</option>
+                    @foreach($users as $user)
+                        <option value="{{ $user->name }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -77,6 +77,7 @@
                     <option value="Pending">Pending</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Completed">Completed</option>
+                    <option value="Blocked">Blocked</option>
                 </select>
             </div>
 
