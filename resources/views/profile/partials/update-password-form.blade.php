@@ -23,24 +23,24 @@
 
             <div>
                 <x-input-label for="update_password_current_password" style="color: #fff;" :value="__('Current password')" />
-                <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full inp" autocomplete="current-password" />
-                <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+                <x-text-input id="update_password_current_password" style="color: #fff;" name="current_password" type="password" class="mt-1 block w-full inp" autocomplete="current-password" />
+                <x-input-error :messages="$errors->updatePassword->get('current_password')" style="color: #fff;" class="mt-2" />
             </div>
 
             <div>
                 <x-input-label for="update_password_password" style="color: #fff;" :value="__('New password')" />
-                <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full inp" autocomplete="new-password" />
-                <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+                <x-text-input id="update_password_password" style="color: #fff;" name="password" type="password" class="mt-1 block w-full inp" autocomplete="new-password" />
+                <x-input-error :messages="$errors->updatePassword->get('password')" style="color: #fff;" class="mt-2" />
             </div>
 
             <div>
                 <x-input-label for="update_password_password_confirmation" style="color: #fff;" :value="__('Confirm password')" />
-                <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full inp" autocomplete="new-password" />
-                <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+                <x-text-input id="update_password_password_confirmation" style="color: #fff;" name="password_confirmation" type="password" class="mt-1 block w-full inp" autocomplete="new-password" />
+                <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" style="color: #fff;" class="mt-2" />
             </div>
 
             <div class="flex items-center gap-4">
-                <x-primary-button class="guardar">{{ __('Save') }}</x-primary-button>
+                <x-primary-button class="guardar" style="color: #333;">{{ __('Save') }}</x-primary-button>
 
                 @if (session('status') === 'password-updated')
                     <p

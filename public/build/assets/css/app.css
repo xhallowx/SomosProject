@@ -60,11 +60,30 @@
 
 .inicio{
     transition: .5s ease;
+
 }
 
 .inicio:hover{
     transform: scale(1.03);
 }
+
+.dash{
+    color: white;
+}
+
+.hambu{
+    color: white;
+}
+
+.hambu:hover{
+    background-color: rgb(75, 74, 74);
+}
+
+@media (prefers-color-scheme: dark) {
+    .hambu {
+      color: white;
+    }
+  }
 
 .perfil{
     background: #3f3f3f; 
@@ -91,6 +110,10 @@
     font-size: 1.1rem;
     border: 1px solid #333;
     animation: welcome 10s infinite;
+}
+
+.texto-largo{
+    color: white;
 }
 
 .info{

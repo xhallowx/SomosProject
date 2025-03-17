@@ -8,7 +8,7 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class=" dark:bg-black overflow-hidden shadow-sm sm:rounded-lg welcome">
-            <div class="p-6 text-gray-900 dark:text-gray-100 text">
+            <div class="p-6 text-gray-900 dark:text-gray-100 text texto-largo">
                 <p style="font-size: 20px; filter:drop-shadow(1.5px 1.5px 1.5px #000);">Welcome <strong>{{ optional(auth()->user())->name ?? 'Invitado' }}</strong> to Somos Project!</p>
                 <br>
                 <div style="border: 1px solid #222; padding: 5px; background: #333; border-radius: 10px; filter: drop-shadow(1px 1px 1px #000);">

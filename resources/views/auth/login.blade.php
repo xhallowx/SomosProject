@@ -6,6 +6,11 @@
     <title>Somos Project</title>
     <link rel="stylesheet" href="{{asset('build/assets/css/login.css')}}">
     <link rel="icon" href="{{asset('somos.ico')}}" type="image/x-icon">
+    <style>
+        body{
+            background-image: url('/build/assets/img/somos.png');
+        }
+    </style>
 </head>
 <body>
     <x-auth-session-status class="mb-4" :status="session('status')" />

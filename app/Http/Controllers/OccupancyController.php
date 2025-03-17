@@ -12,14 +12,19 @@ class OccupancyController extends Controller
      */
     public static function getOwnerOccupancy($owner)
     {
-        $projectsCount = Task::where('owner', $owner)->count();
-        $tasksCount    = ProjectTask::where('owner', $owner)->count();
+        $projectsCount = Task::where('owner', $owner)
+                                ->where('project_state', '!=', 'Completed')
+                                ->count();
+        
+        $tasksCount = ProjectTask::where('owner', $owner)
+                                    ->where('task_state', '!=', 'Completed')
+                                    ->count();
 
         $occupancy = (15 * $projectsCount) + (10 * $tasksCount);
 
-        return [
-            'projects'  => $projectsCount,
-            'tasks'     => $tasksCount,
+        return[
+            'projects' => $projectsCount,
+            'tasks' => $tasksCount,
             'occupancy' => $occupancy
         ];
     }

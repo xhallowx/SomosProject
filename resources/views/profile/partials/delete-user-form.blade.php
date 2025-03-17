@@ -36,7 +36,7 @@
                 </p>
 
                 <div class="mt-6">
-                    <x-input-label for="password" value="{{ __('Password') }}" />
+                    <x-input-label for="password" style="color: #fff;" value="{{ __('Password') }}" />
 
                     <x-text-input
                         id="password"
