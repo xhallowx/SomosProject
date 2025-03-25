@@ -5,7 +5,8 @@
 }
 
 body {
-    background-image: url('/build/assets/img/somos.png');
+    /* background-image: url('/build/assets/img/somos.png'); */
+    background: linear-gradient(30deg, #000, #5c5c5c);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
