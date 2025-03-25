@@ -1,8 +1,8 @@
 const mask = document.getElementById("mask");
 const mouseCursor = (Event) => {
   const rect = mask.getBoundingClientRect();
-  const mouseX = Event.clientX - rect.left - 70;
-  const mouseY = Event.clientY - rect.top - 70;
+  const mouseX = Event.clientX - rect.left - 115;
+  const mouseY = Event.clientY - rect.top - 110;
   mask.style.maskPosition = `${mouseX}px ${mouseY}px`;
 };
 

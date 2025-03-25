@@ -110,6 +110,7 @@
     font-size: 1.1rem;
     border: 1px solid #333;
     animation: welcome 10s infinite;
+    user-select: none;
 }
 
 .texto-largo{
@@ -181,6 +182,7 @@
     /* background: linear-gradient(to right , #555, #222); */
     background-image: url('/build/assets/img/network.png');
     mask-size: 300px;
+    cursor: none;
 }
 
 @media (max-width: 768px){

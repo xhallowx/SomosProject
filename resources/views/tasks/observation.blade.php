@@ -79,7 +79,7 @@
                                 $totalTasks = $project->projectTasks->count();
                             @endphp
 
-                            @if($totalTasks <= 2)
+                            @if($totalTasks <= 1)
                                 @foreach($project->projectTasks as $task)
                                     <tr class="task-row">
                                         <td>{{ $task->owner }}</td>
@@ -101,7 +101,7 @@
                             @else
                                 {{-- Mostrar las 2 primeras tareas normalmente --}}
                                 @foreach($project->projectTasks as $index => $task)
-                                    @if($index < 2)
+                                    @if($index < 1)
                                         <tr class="task-row">
                                             <td>{{ $task->owner }}</td>
                                             <td class="task-description">{{ $task->description_task }}</td>
@@ -118,7 +118,7 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @elseif($index == 2)
+                                    @elseif($index == 1)
                                         <tr class="task-row preview-task">
                                             <td>{{ $task->owner }}</td>
                                             <td class="task-description">{{ $task->description_task }}</td>
@@ -137,7 +137,7 @@
                                         </tr>
                                         <tr class="preview-button-row">
                                             <td colspan="7" class="text-center">
-                                                <button type="button" class="btn btn-primary btn-visualizar"><strong>See {{$project->projectTasks->count()-2}} more</strong></button>
+                                                <button type="button" class="btn btn-primary btn-visualizar"><strong>See {{$project->projectTasks->count()-1}} more</strong></button>
                                             </td>
                                         </tr>
                                     @else

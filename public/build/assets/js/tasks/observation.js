@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
           row.style.display = 'none';
         });
         const taskRows = tbody.querySelectorAll('tr.task-row');
-        if (taskRows.length >= 3) {
-          taskRows[2].classList.add('preview-task');
+        if (taskRows.length >= 2) {
+          taskRows[1].classList.add('preview-task');
         }
         const previewButtonRow = tbody.querySelector('tr.preview-button-row');
         if (previewButtonRow) {

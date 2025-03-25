@@ -241,8 +241,8 @@ h3{
 }
 
 .btn-ocultar{
-    background: rgb(76, 85, 107);
-    color: #fff;
+    background: rgb(234, 238, 22);
+    color: #000;
     border-radius: 10px;
     border: 1px solid #555;
     filter: drop-shadow(1px 1px 1px #222);
@@ -252,6 +252,7 @@ h3{
 }
 
 .btn-ocultar:hover{
+    color: #fff;
     transform: scale(1.03);
     background: rgb(71, 75, 90);
     filter: drop-shadow(1.5px 1.5px 1.5px #000);
