@@ -36,10 +36,10 @@ class TaskController extends Controller
         $owner = $request->owner;
         $occupancyData = OccupancyController::getOwnerOccupancy($owner);
 
-        // if ($occupancyData['occupancy'] >= 100) {
-        //     return redirect()->route('summary')
-        //                      ->with('error', "$owner it already has 100% occupancy.");
-        // }
+        if ($occupancyData['occupancy'] >= 100) {
+            return redirect()->route('summary')
+                             ->with('error', "$owner it already has 100% occupancy.");
+        }
 
         Task::create($request->all());
 
